@@ -656,7 +656,39 @@ body,.app{background:#101827;color:#F8FAFC}
  .layout:has(.home-balance) .home-credit-panel .sectionhead{margin-bottom:0!important}
 }
 </style>
-</head><body><div class="app"><header class="top"><div class="logo"><span class="logoicon" aria-label="Controle financeiro"><svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 10h18"/><path d="M7 6V4a2 2 0 0 1 2-2h9"/><path d="M15 15h3"/><circle cx="16" cy="15" r="1"/></svg></span> Controle mensal <span class="chip version-top" id="versionTop">Versão 94</span></div><div class="topright"><div class="month"><button id="prev" aria-label="Mês anterior">‹</button><div class="month-center"><button type="button" id="monthTrigger" class="month-trigger" aria-label="Escolher mês e ano">dezembro de 2026⌄</button><select id="month" aria-label="Selecionar mês e ano" style="display:none"></select><div id="monthPopup" class="month-popup" hidden></div><span id="monthStatus">Mês atual</span></div><button id="next" aria-label="Próximo mês">›</button></div><div class="avatar" id="mood" role="img" aria-label="Saldo positivo"></div></div></header><div class="heading"><div><div class="eyebrow" id="eyebrow" style="display:none"></div><h1 id="title">Visão do mês</h1></div><span class="chip" id="chip">Versão 94</span></div><div id="root"></div></div><button class="addfab" id="fab" aria-label="Novo lançamento">+</button><nav class="navmobile"><button data-page="home" class="active"><span>⌂</span>Início</button><button data-page="cards"><span>▣</span>Cartões</button><button type="button" class="nav-add" id="navAdd" aria-label="Adicionar novo gasto"><span>+</span></button><button data-page="income"><span>▤</span>Receitas</button><button data-page="investments"><span>↗</span>Investir</button><button data-page="settings"><span>⚙</span>Dados</button></nav><div class="modal" id="modal"><div class="dialog"><h2 id="modalTitle">Novo lançamento</h2><form id="form"><div class="expense-type-picker"><div class="expense-picker-label">Qual tipo de gasto?</div><div class="expense-type-grid" id="expenseTypes">
+
+<style>
+/* V95 — refinamentos estritamente mobile; desktop preservado */
+@media screen and (max-width:700px){
+  /* Marca e indicador de humor na mesma linha superior */
+  .top{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) 43px!important;align-items:center!important;gap:8px!important;margin-bottom:0!important;min-height:43px}
+  .top .logo{grid-column:1;grid-row:1;min-width:0;font-size:clamp(15px,4.5vw,19px)!important}
+  .top .logo .version-top{font-size:9px!important;padding:4px 6px!important}
+  .topright{display:contents!important}
+  .topright .avatar{display:grid!important;grid-column:2;grid-row:1;justify-self:end;width:40px!important;height:40px!important}
+  /* Seletor compacto à esquerda, na linha do título da página */
+  .topright .month{position:absolute!important;top:calc(100% + 11px);left:0;width:clamp(174px,55vw,214px)!important;height:44px!important;min-width:0!important;max-width:60vw!important;padding:3px 4px!important;border-radius:12px!important;gap:0!important;z-index:8}
+  .month-center{min-width:0!important;flex:1!important;padding:0!important}
+  .month-trigger{min-width:0!important;width:100%!important;font-size:clamp(12px,3.7vw,15px)!important;padding:2px 0!important;overflow:hidden;text-overflow:ellipsis}
+  .month button:not(.month-trigger){min-width:23px!important;width:23px!important;height:32px!important;font-size:19px!important;padding:0!important}
+  #monthStatus{font-size:8px!important;line-height:1.1!important}
+  .month-popup{width:min(310px,calc(100vw - 26px))!important;left:0!important;transform:none!important}
+  .heading{height:44px!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;margin:11px 0 12px!important;padding:0 1px 0 0!important}
+  .heading h1{font-size:clamp(17px,5vw,21px)!important;text-align:right!important;margin:0!important;white-space:nowrap}
+  /* Somente no celular, o cartão inteiro já é o acesso aos detalhes */
+  .home-mini-grid .home-finance-right small{display:none!important}
+  .home-mini-grid .home-finance-summary{min-height:110px!important;gap:4px!important}
+  /* Cinco itens na navegação, com o + precisamente no centro */
+  .navmobile{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  .navmobile button[data-page="cards"]{display:none!important}
+  .navmobile .nav-add{grid-column:3!important;grid-row:1!important;transform:translateY(-3px)!important}
+  .navmobile button[data-page="home"]{grid-column:1!important;grid-row:1!important}
+  .navmobile button[data-page="income"]{grid-column:2!important;grid-row:1!important}
+  .navmobile button[data-page="investments"]{grid-column:4!important;grid-row:1!important}
+  .navmobile button[data-page="settings"]{grid-column:5!important;grid-row:1!important}
+}
+</style>
+</head><body><div class="app"><header class="top"><div class="logo"><span class="logoicon" aria-label="Controle financeiro"><svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 10h18"/><path d="M7 6V4a2 2 0 0 1 2-2h9"/><path d="M15 15h3"/><circle cx="16" cy="15" r="1"/></svg></span> Controle mensal <span class="chip version-top" id="versionTop">Versão 95</span></div><div class="topright"><div class="month"><button id="prev" aria-label="Mês anterior">‹</button><div class="month-center"><button type="button" id="monthTrigger" class="month-trigger" aria-label="Escolher mês e ano">dezembro de 2026⌄</button><select id="month" aria-label="Selecionar mês e ano" style="display:none"></select><div id="monthPopup" class="month-popup" hidden></div><span id="monthStatus">Mês atual</span></div><button id="next" aria-label="Próximo mês">›</button></div><div class="avatar" id="mood" role="img" aria-label="Saldo positivo"></div></div></header><div class="heading"><div><div class="eyebrow" id="eyebrow" style="display:none"></div><h1 id="title">Visão do mês</h1></div><span class="chip" id="chip">Versão 95</span></div><div id="root"></div></div><button class="addfab" id="fab" aria-label="Novo lançamento">+</button><nav class="navmobile"><button data-page="home" class="active"><span>⌂</span>Início</button><button data-page="cards"><span>▣</span>Cartões</button><button type="button" class="nav-add" id="navAdd" aria-label="Adicionar novo gasto"><span>+</span></button><button data-page="income"><span>▤</span>Receitas</button><button data-page="investments"><span>↗</span>Investir</button><button data-page="settings"><span>⚙</span>Dados</button></nav><div class="modal" id="modal"><div class="dialog"><h2 id="modalTitle">Novo lançamento</h2><form id="form"><div class="expense-type-picker"><div class="expense-picker-label">Qual tipo de gasto?</div><div class="expense-type-grid" id="expenseTypes">
 <button type="button" data-expense-kind="fixed">🏠 Conta fixa</button>
 <button type="button" data-expense-kind="card">💳 Cartão de crédito</button>
 <button type="button" data-expense-kind="pix">↗ PIX</button>
