@@ -1,5 +1,5 @@
-/* Controle Mensal v286 - cache de publicacao revisado */
-const CACHE = 'controle-mensal-v286-pwa1';
+/* Controle Mensal v287 - cache de publicacao revisado */
+const CACHE = 'controle-mensal-v287-pwa1';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(
