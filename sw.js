@@ -1,5 +1,5 @@
-/* Controle Mensal V336 - cache atualizado */
-const CACHE = 'controle-mensal-v336-pwa1';
+/* Controle Mensal V337 - cache atualizado */
+const CACHE = 'controle-mensal-v337-pwa1';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icone-aporte-v196.png', './icone-meus-objetivos-v199.png'];
 self.addEventListener('install', event => {
  event.waitUntil(caches.open(CACHE).then(cache => Promise.allSettled(ASSETS.map(asset => cache.add(asset)))).then(() => self.skipWaiting()));
